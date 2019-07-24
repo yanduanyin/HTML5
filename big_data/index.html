@@ -49,35 +49,42 @@
   const element = 
     document.querySelector('.news');
   let page = 0;
-  let pageNum =Math.ceil( document.body.clientHeight/50);
-  let news = chunk(originNews,pageNum);
+  let pageNum = 
+    Math.ceil(document.body.clientHeight/50);
+  let news = chunk(originNews, pageNum);
   const loadObserver = new IntersectionObserver(
     (entries) => {
-        console.log(entries);
-        if (entries[0].intersectionRatio <= 0) 
-            return;
-        
-        const hasPrePage = page != 0;
-        const hasNextPage= page != news.length -1 ;
+      if (entries[0].intersectionRatio <= 0) 
+        return;
+      
+      const hasPrePage = page != 0;
+      const hasNextPage = page != news.length - 1;
 
-        const now = news[page];
-        const pre = hasNextPage? news[page-1]:[];
-        const next = hasNextPage? news[page+1]:[];
-    //   渲染
-    render(pre.length,[...pre, ...now, ...next]);
-    page = entries[0].target.className == 'news-footer'
-    || page === 0 ? (hasNextPage? page+1 : page): (hasPrePage? page-1: page)
-  },{threshold:[1]})
+      const now = news[page];
+      const pre = hasPrePage? news[page-1]:[];
+      const next = hasNextPage?news[page+1]:[];
+
+      // 渲染 
+      render(pre.length,
+       [...pre, ...now, ...next]);
+      
+      page = 
+      entries[0].target.className == 'news-footer' 
+      || page === 0
+      ? (hasNextPage? page+1 : page)
+      : (hasPrePage?page-1: page)
+  }, {threshold: [1]}) 
 
   loadObserver.observe(
     document.querySelector('.news-header'))
   loadObserver.observe(
   document.querySelector('.news-footer'))
 
-  function render(last, data){
+  function render(last, data) {
     element.innerHTML = '';
-    data.forEach((i, v) => element.innerHTML += v ==last ? `<div id="news-href">${i.content}</div>`:`<div>${i.content}</div>`);
-    window.location.href ='#news-href';
+    data.forEach((i, v) => element.innerHTML
+     += v == last ? `<div id="news-href">${i.content}</div>`:`<div>${i.content}</div>`);
+     window.location.href = '#news-href';
   }
   // {
   //   return [];
