@@ -1,0 +1,46 @@
+link_color =#3377aa
+border_color =#eaeaea
+a
+    text-decoration none
+    color link_color
+    &:visited 
+        color #666699
+    &:hover
+        color #ffffff
+        cursor pointer  //鼠标箭头改变手型
+        background link_color
+table 
+    border_color-collapse collapse
+    border_color none 
+    padding 0
+    margin 0
+body 
+    font-size 12px
+    font-family sans-serif
+    line-height 1.62
+    color #111111
+   
+#billboard
+    width 300px 
+    margin-bottom 50px
+    h2
+        color #111
+        padding-bottom 10px
+        border_color-bottom 1px solid border_color
+        font-size 16px
+        margin-bottom 12px
+        line-height 150%
+        span 
+            font size 13px
+            margin-left 12px
+    td 
+        padding 7px 0
+        border_color-bottom 1px solid border_color
+        &:nth-child(2n+1)//选中所有数字   n从0开始
+           width 20px
+           font-size 9px
+           text-align center
+        &.title
+            width 290px
+         
+    
