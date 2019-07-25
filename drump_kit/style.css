@@ -1,0 +1,38 @@
+html {
+    /*  */
+    font-size: 10px;
+    background: url(http://i.imgur.com/b9r5sEL.jpg);
+    bottom: 0;
+    content: 0;
+    background-size: cover;
+}
+body, html {
+    margin: 0;
+    padding: o;
+    font-family: sans-serif;
+}
+.keys {
+    display: flex; /* 弹性布局，按水平分布*/
+    flex: 1;/* 等比例*/
+    min-height: 100vh;
+    background-color: red;
+    /* text-align: center */
+    align-items: center;
+}
+.key {
+    border: .4rem solid #000;
+    border-radius: 0.5rem;/*圆角*/
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem 0.5rem;
+    width: 10rem;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,.4);
+    text-shadow: 0 0 .5rem black;
+   transition: all 0.07s ease;  /* 过渡，出现按键效果缓慢的过程*/
+}
+.playing {
+    transform: scale(1.1);
+    border-color: rgb(183, 248, 5);
+}
