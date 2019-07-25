@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>students table dom</title>
+    <style>
+        /* *{
+            margin: 0;
+            padding: 0;
+        } */
+        .container{
+            /* 块级元素 */
+            width: 960px;
+            margin: 0 auto;
+            /* background-color: yellowgreen; */
+        }
+        .table{
+           width: 100%;
+           text-align: center;
+        }
+        td,th{
+            border-bottom: 1px solid #000;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>家乡</th>
+                    <th>是否单身</th>
+                    <th>年龄</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>刘磊</td>
+                    <td>是</td>
+                    <td>宜春</td>
+                    <td>22</td>
+                    <td>岁</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <!-- 十一位同学 -->
+    <script>
+        //数据显示到页面的工作
+        const students = [
+            // 对象字面量
+            {
+                name: '严端银',
+                hometown: '鹰潭',
+                single: false, //boolean
+                age: 22,  //number
+                company: undefined,//未定义
+                wife: null, //null
+                hobbies:{
+                    //JSON Object
+                    game:['王者荣耀','麻将'], //arr object
+                    event:['撩','吃'],
+                },
+                sing: function(song){
+                    console.log(this.name+ '来一首' + song.name)
+                }
+            },
+            {
+                name: '欧阳江川',
+                single: false,
+                hometown: '九江',
+                age: 22
+            },
+            { name :'杜发军',
+                hometown:'赣州',
+                single:false,
+                age:22,
+            },
+            {
+                name:'廖玉良',
+                hometown:'宜春',
+                single: true,
+                age: 22, 
+            },
+            {
+              name:'李吉勇',
+              hometown:'吉安',
+              single:true,
+              age:22,   
+             },
+             {  name:'吴梦琪',
+                hometown:'南昌',
+                single:false,//boolean
+                age:22,//number
+            },
+            {
+            name:'许琳鑫',
+            hometown: '上饶',
+            single: false, 
+            age: 21, 
+            },
+            {
+                name:'黄家豪',
+                hometown:'南昌',
+                single:false,//boolean
+                age:17,//number
+                company:undefined
+            }
+
+
+
+        ];
+
+        // DOM编程
+        let tBody = document.querySelector('.table tbody');
+        console.log(tBody);
+        //高级写法
+        students.forEach((student,i) =>{
+            // console.log(student,i)
+            // let student = students[i];
+        //+=  再加一个
+            tBody.innerHTML += `
+            <tr>
+                <td>${i+1}</td>
+                <td>${student.name}</td>
+                <td>${student.hometown}</td>
+                <td>${student.single?'是':'否'}</td>
+                <td>${student.age}</td>
+            </tr>
+            `
+        });
+        //  for循环写法
+    //     for(let i = 0;i<students.length;i++){
+    //         let student = students[i];
+    //         //+=  再加一个
+    //         tBody.innerHTML += `
+    //         <tr>
+    //             <td>${i+1}</td>
+    //             <td>${student.name}</td>
+    //             <td>${student.hometown}</td>
+    //             <td>${student.single?'是':'否'}</td>
+    //             <td>${student.age}</td>
+    //         </tr>
+    //         `
+    // }
+    </script>
+</body>
+</html>
