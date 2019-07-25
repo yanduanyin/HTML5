@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    body {
+        text-align: center;
+    }
+    #draw {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <!-- 画布 -->
+    <canvas id="draw"></canvas>
+    <script>
+        const canvas=
+        document.querySelector('#draw');
+        // console.log(canvas);
+        // canvas 步骤
+        const ctx =
+        canvas.getContext('2d');
+        // 绘画环境
+        // window 属于BOM Browser  Object Model,是js的宙斯，天;
+        //BOM Document  Object Model，地面的王;
+        canvas.width = window.innerWidth -100 ;
+        canvas.height = window.innerHeight -100 ;
+
+        ctx.strokeStyle= '#BADA55';//描边颜色
+        ctx.lineWidth= 30;
+        ctx.lineJoin= 'round';
+        ctx.lineCap ='round';
+
+        // 全局变量
+        let lastX=0,
+        lastY=0,
+        isDrawing=false,
+        hue =0,
+        direction=true;
+        // ctx.moveTo(100,100);
+        // ctx.lineTo(200,200);
+        // ctx.stroke();
+        function draw(event) {
+            // console.log(event.offsetX,event.offsetY);
+            if(!isDrawing) return;//（！）逻辑非操作符
+            console.log(event);
+            ctx.strokeStyle='hsl('+ hue +',100%,50%)';
+            ctx.beginPath();
+            ctx.moveTo(lastX,lastY);
+            ctx.lineTo(event.offsetX,event.offsetY);
+            ctx.stroke();
+            lastX = event.offsetX;
+            lastY = event.offsetY;
+
+            hue+=50;
+            if(hue>=360) {
+                hue=0;
+            }
+            if(ctx.lineWidth>=100|| ctx.lineWidth<=1) {
+                direction =!direction;
+            }
+            if(direction) {
+                ctx.lineWidth++;
+            }
+            else {
+                ctx.lineWidth--;
+            }
+        }
+        canvas.addEventListener('mousedown',
+        function(event){
+            console.log(event.offsetX,event.offsetY);
+            isDrawing=true;
+            // Boolean mousemove 要画了
+            lastX= event.offsetX;
+            lastY= event.offsetY;
+        });
+        // 画完
+        canvas.addEventListener('mousemove',draw);     // 监听一个事件
+        // canvas.addEventListener('mouseup',
+        // function(event) {
+        //     isDrawing=false;
+        // }
+        // );
+        canvas.addEventListener('mouseup',()=>isDrawing=false);//()=> 箭头函数 ()代表function(event) =>指向函数体
+        canvas.addEventListener('mouseout',()=> isDrawing=false);
+    </script>
+</body>
+</html>
