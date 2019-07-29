@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圣杯布局</title>
+    <style>
+             html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* 以下是我的业务代码，以上都是"标配" */
+    .main {
+        border: 1px solid #3903fc;
+        width: 90px;
+        min-width: 900px;
+        margin: 0 auto;
+    }
+    .left {
+        background-color: red;
+        width: 200px;
+        float: left; /* 能够让这个盒子向左浮动*/
+    }
+    .right {
+        background-color: rgb(99, 99, 99);
+        width: 200px;
+        float: right; /* 能够让这个盒子浮动*/
+    }
+    .middle {
+        border: 1px solid red;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .middle::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div class="top">头部</div>
+    <div class="middle">
+        <div class="left">1</div>
+        <div class="right">2</div>
+    </div>
+    <div class="bottom">底部</div>
+</div>
+</body>
+</html>
