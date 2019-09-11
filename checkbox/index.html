@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>checkbox</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div class="inbox">
+        <div class="item">
+            <input type="checkbox">
+            <p>check one item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check one item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check one item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check one item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check one item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check one item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check one item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check one item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check one item</p>
+        </div>
+    </div>
+    <script>
+        const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]')
+        
+        checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleClick))
+        function handleClick(e) {
+            // if (e.shiftKey && this.checked) {//指向checkbox
+            //     checkboxes.forEach(checkbox => {
+                    checkbox.checked = true
+            //     })
+            // }
+            //1
+            // if (e.shiftKey ) {
+            //     checkboxes.forEach(checkbox => {
+            //         if(checkbox !=this){
+            //             checkbox.checked = this.checked
+            //         }
+            //     })
+            // }
+            //2
+            if(e.shiftKey){
+                checkboxes.forEach(i => {
+                    i.checked = this.checked
+                })
+            }
+                //3
+			// e.target.checked = !e.target.checked;
+			// if (e.shiftKey) {
+			// 	checkboxes.forEach(checkbox => {
+					
+			// 		checkbox.checked = !checkbox.checked;
+			// 	})
+			// }
+        }
+    </script>
+</body>
+
+</html>
