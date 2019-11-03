@@ -1,4 +1,19 @@
-- canvas 用于绘图 Game ,高互动的h5应用
-- 绘图API在 context 上API很多，请以现实中花花的方案去理解 canvas.getContext('2d')
-- BOM DOM 
-    window = document + 浏览器赋予的功能 定位 + 设备摇晃 + 浏览器存储功能 + 音视屏功能(h5)....
+
+东理-162-杜发军 2019/8/13 16:46:12
+## 
+1.箭头函数 不支持重名形参，普通函数可以
+2.箭头函数 没有this箭头函数 this 指向定义时候所处的上下文的this
+call apply 不能改变 箭头函数 this
+
+
+## 类数组
+1.length
+2.索引获取值
+arguments 
+转为真正的数组
+1.Array.from()
+2.Array.prototype.slice.call()
+
+## this
+调用的时候再确定下来
+obj.fun() fun this指向obj
